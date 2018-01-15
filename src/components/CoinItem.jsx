@@ -52,7 +52,7 @@ class CoinItem extends Component {
 
     //console.log('----- coinItem call me ! ');
      //console.log('---coinItem---',this.props.coin);
-     console.log('coin object', cryptoRank);
+    //  console.log('coin object', cryptoRank);
 
 
 
