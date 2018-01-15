@@ -42486,15 +42486,9 @@ var App = function (_Component) {
               _react2.default.createElement(
                 'div',
                 { className: 'App' },
-                _react2.default.createElement(
-                  _reactRouter.Router,
-                  { history: _reactRouter.browserHistory },
-                  _react2.default.createElement(
-                    'div',
-                    null,
-                    _react2.default.createElement(_reactRouterDom.Route, { exactly: true, component: _CoinList2.default, path: '/app' })
-                  )
-                )
+                _react2.default.createElement(_AddCoin2.default, null),
+                _react2.default.createElement(_CoinList2.default, null),
+                _react2.default.createElement('div', null)
               )
             )
           )
@@ -57082,7 +57076,7 @@ var CoinItem = function (_Component) {
       var percentIncreaseTd = null;
       var percentChange7dTd = null;
 
-      var coinIcom = '../images/icons/' + coin + '.png';
+      var coinIcom = '/public/images/icons/' + coin + '.png';
       var totalAmount = this.props.totalAmount.totalAmount;
       //let {firstAssign} = this.props.firstAssign;
 
@@ -57132,7 +57126,7 @@ var CoinItem = function (_Component) {
         _react2.default.createElement(
           'td',
           { style: { textAlign: 'left', whiteSpace: 'nowrap' } },
-          _react2.default.createElement('img', { src: coinIcom ? coinIcom : "..public/images/icons/generic.png",
+          _react2.default.createElement('img', { src: coinIcom ? coinIcom : "public/images/icons/generic.png",
             style: { width: '20px', marginRight: '3px' } }),
           _react2.default.createElement(
             'strong',
@@ -57636,7 +57630,7 @@ var Nav = function (_Component) {
         _react2.default.createElement(
           'nav',
           { 'class': 'navbar navbar-expand-lg navbar-dark bg-dark fixed-top', id: 'mainNav' },
-          _react2.default.createElement('img', { src: '../images/icons/generic.png', style: { width: '25px' } }),
+          _react2.default.createElement('img', { src: 'public/images/icons/generic.png', style: { width: '25px' } }),
           _react2.default.createElement(
             'span',
             { style: { color: '#fff', marginLeft: '5px' } },
@@ -63498,6 +63492,12 @@ var SignIn = function (_Component) {
               _react2.default.createElement(
                 'div',
                 { 'class': 'text-center' },
+                _react2.default.createElement(
+                  'div',
+                  null,
+                  ' ',
+                  this.state.error.message
+                ),
                 _react2.default.createElement(
                   _reactRouter.Link,
                   { to: '/signup' },

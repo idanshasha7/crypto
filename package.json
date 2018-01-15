@@ -1,6 +1,8 @@
 {
-  "name": "cryp",
+  "name": "crypto",
   "version": "0.1.0",
+  "homepage": "https://idanshasha7.github.io/crypto/src/index.html",
+
   "private": true,
   "dependencies": {
     "axios": "^0.17.1",
