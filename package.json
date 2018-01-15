@@ -1,8 +1,8 @@
-{
+
+  {
   "name": "crypto",
   "version": "0.1.0",
-  "homepage": "https://idanshasha7.github.io/crypto/src/index.html",
-
+  "homepage": "https://github.com/idanshasha7/crypto",
   "private": true,
   "dependencies": {
     "axios": "^0.17.1",
@@ -16,6 +16,10 @@
     "react-router-dom": "^4.2.2",
     "react-scripts": "1.0.17",
     "redux": "^3.7.2"
+  },
+  "repository": {
+  "type": "git",
+  "url": "git+https://github.com/idanshasha7/crypto.git"
   },
   "scripts": {
     "predeploy": "npm run build",
@@ -42,8 +46,8 @@
     "style-loader": "^0.19.1",
     "webpack": "^3.10.0"
   },
-  "description": "This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).",
+  "description": "crypto wallet - follow your coins",
   "main": "index.js",
-  "author": "",
+  "author": "idansahsha",
   "license": "ISC"
 }
