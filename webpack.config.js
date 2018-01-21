@@ -8,6 +8,10 @@ module.exports = {
         path:  __dirname,
         filename: 'bundle.js',
         // publicPath: "/assets/",
+        publicPath: '/public/'
+
+
+
     },
     resolve: {
         extensions: ['.js', '.jsx','css']
@@ -43,6 +47,18 @@ module.exports = {
 
         ]
     },
+
+    devServer: {
+      historyApiFallback: true,
+      // contentBase: path.resolve('public'),
+      // publicPath: '/public',
+    //   proxy: {
+    //     '/*': {
+    //      target: 'http://localhost:[port]/',
+    //      pathRewrite: { '^/': '' },
+    //    },
+    //  },
+   },
     plugins: [new HtmlWebpackPlugin({
         template: './public/index.html',
         filename: 'index.html',

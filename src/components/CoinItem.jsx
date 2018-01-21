@@ -35,7 +35,7 @@ class CoinItem extends Component {
     let percentIncreaseTd = null;
     let percentChange7dTd = null;
 
-    let coinIcom = '/crypto/public/images/icons/'+coin +'.png';
+    let coinIcom = '/public/images/icons/'+coin +'.png';
     const {totalAmount} = this.props.totalAmount;
     //let {firstAssign} = this.props.firstAssign;
     let percentIncrease = this.getpercentIncrease(firstAssign,cryValue);

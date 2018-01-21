@@ -44,8 +44,8 @@ class CoinRest extends React.Component {
         {this.state.restCoins.map(coin =>
             <tr key={coin.rank}>
                 <td>
-                <img src={coin.name ? "../images/icons/" + coin.name + ".png"
-                                    : "../images/icons/generic.png" }
+                <img src={coin.name ? "public/images/icons/" + coin.name + ".png"
+                                    : "public/images/icons/generic.png" }
                                     style={{width: '20px',marginRight:'3px'}}/>
                   {coin.name}
                 </td>

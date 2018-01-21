@@ -1,0 +1,10 @@
+@media (min-width: 768px){
+
+  .navbar {
+    border-radius: 0 !important;
+  }
+}
+.navbar-nav {
+    margin: 7.5px -5px;
+
+}

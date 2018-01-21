@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router';
+import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
 import {firebaseApp} from '../firebase';
 
 class SignIn extends Component {
@@ -13,7 +14,9 @@ class SignIn extends Component {
       }
     }
   }
-
+  componentDidMount(){
+    // console.log("wait this is state ", this.props)
+  }
   signIn(){
     console.log('this.state',this.state);
     const {email, password} = this.state
@@ -22,17 +25,20 @@ class SignIn extends Component {
       console.log('error', error);
       this.setState({error});
     })
+    if(this.state.error.message === ""){
+      this.props.history.push('/crypto')
+    }
   }
 
   render(){
     return (
        <div className="bg-dark" >
-       <div class="container">
-         <div class="card card-login mx-auto mt-5">
-           <div class="card-header">Login</div>
-           <div class="card-body">
+       <div className="container">
+         <div className="card card-login mx-auto mt-5">
+           <div className="card-header">Login</div>
+           <div className="card-body">
              <form>
-               <div class="form-group">
+               <div className="form-group">
                  <label for="exampleInputEmail1">Email address</label>
                  <input
                    className="form-control"
@@ -41,7 +47,7 @@ class SignIn extends Component {
                    onChange={event => this.setState({email: event.target.value})}
                    />
                </div>
-               <div class="form-group">
+               <div className="form-group">
                  <label for="exampleInputPassword1">Password</label>
                  <input
                    className="form-control"
@@ -60,7 +66,7 @@ class SignIn extends Component {
                      Login
                </button>
              </form>
-             <div class="text-center">
+             <div className="text-center">
              <div> {this.state.error.message}</div>
                <Link to={'/signup'}> Sign Up instead </Link>
 
@@ -74,4 +80,4 @@ class SignIn extends Component {
   }
 }
 
-export default SignIn;
+export default SignIn
