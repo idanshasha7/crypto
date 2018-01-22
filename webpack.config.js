@@ -43,18 +43,22 @@ module.exports = {
 
         ]
     },
-
     devServer: {
-      historyApiFallback: true,
-      // contentBase: path.resolve('public'),
-      // publicPath: '/public',
-    //   proxy: {
-    //     '/*': {
-    //      target: 'http://localhost:[port]/',
-    //      pathRewrite: { '^/': '' },
-    //    },
-    //  },
-   },
+       historyApiFallback: true,
+       contentBase: './',
+       hot: true
+     },
+  //   devServer: {
+  //     historyApiFallback: true,
+  //     // contentBase: path.resolve('public'),
+  //     // publicPath: '/public',
+  //   //   proxy: {
+  //   //     '/*': {
+  //   //      target: 'http://localhost:[port]/',
+  //   //      pathRewrite: { '^/': '' },
+  //   //    },
+  //   //  },
+  //  },
     plugins: [new HtmlWebpackPlugin({
         template: './public/index.html',
         filename: 'index.html',
