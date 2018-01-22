@@ -18,6 +18,7 @@ const Main = () => (
       <Route path='/crypto/AddCoin' component={AddCoin}/>
       <Route path='/crypto/CoinRest' component={CoinRest}/>
       <Route path='/crypto/CoinList' component={CoinList}/>
+      <Route  component={CoinRest}/>
     </Switch>
   </main>
 )
