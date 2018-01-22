@@ -14,10 +14,10 @@ import SignIn from './SignIn'
 const Main = () => (
   <main>
     <Switch>
-      <Route exact path='/crypto/cryp/' component={AddCoin}/>
-      <Route path='/crypto/cryp/AddCoin' component={AddCoin}/>
-      <Route path='/crypto/cryp/CoinRest' component={CoinRest}/>
-      <Route path='/crypto/cryp/CoinList' component={CoinList}/>
+      <Route exact path='/cryp/' component={AddCoin}/>
+      <Route path='/cryp/AddCoin' component={AddCoin}/>
+      <Route path='/cryp/CoinRest' component={CoinRest}/>
+      <Route path='/cryp/CoinList' component={CoinList}/>
     </Switch>
   </main>
 )

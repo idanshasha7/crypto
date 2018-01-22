@@ -14,7 +14,7 @@ class SignUp extends Component {
       }
     }
   }
-  
+
   signUp(){
     console.log('this.state',this.state);
     const {email, password} = this.state
@@ -24,7 +24,7 @@ class SignUp extends Component {
       this.setState({error});
     })
     if(this.state.error.message === ""){
-      this.props.history.push('/crypto')
+      this.props.history.push('/cryp')
     }
   }
 

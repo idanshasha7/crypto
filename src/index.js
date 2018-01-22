@@ -37,9 +37,9 @@ ReactDOM.render(
       <Provider store={store}>
         <BrowserRouter  basename='/crypto'>
         <div>
-          <Route  path='/crypto/signin' component={SignIn}/>
-          <Route  path='/crypto/signup' component={SignUp}/>
-          <Route  path='/crypto/cryp/' component={App}/>
+          <Route  path='/signin' component={SignIn}/>
+          <Route  path='/signup' component={SignUp}/>
+          <Route  path='/cryp/' component={App}/>
         </div>
         </BrowserRouter>
       </Provider>
