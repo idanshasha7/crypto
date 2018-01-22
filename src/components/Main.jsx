@@ -6,6 +6,9 @@ import AddCoin from './AddCoin'
 import CoinRest from './CoinRest'
 import CoinList from './CoinList'
 import SignIn from './SignIn'
+import createHistory from 'history/createBrowserHistory';
+const history = createHistory();
+
 // The Main component renders one of the three provided
 // Routes (provided that one matches). Both the /roster
 // and /schedule routes will match any pathname that starts
