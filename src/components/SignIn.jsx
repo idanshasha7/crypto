@@ -26,7 +26,7 @@ class SignIn extends Component {
       this.setState({error});
     })
     if(this.state.error.message === ""){
-      this.props.history.push('/cryp')
+      this.props.history.push('/crypto')
     }
   }
 
