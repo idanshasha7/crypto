@@ -24,7 +24,7 @@ class Nav extends Component {
 
 
   render(){
-    
+
     return (
       <div>
       <nav className="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="mainNav">
@@ -224,7 +224,7 @@ class Nav extends Component {
             </li>
             <li className="nav-item">
 
-              <Link className="nav-link" to={'/signin'}
+              <Link className="nav-link" to={'/crypto'}
                onClick={()=> this.signOut()}
                 data-target="#exampleModal">
                 Logout</Link>
