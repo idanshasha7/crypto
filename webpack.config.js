@@ -3,7 +3,7 @@ var path = require('path');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
-    entry: './crypto/src/index.js',
+    entry: './src/index.js',
     output: {
         path:  __dirname,
         filename: 'bundle.js',
