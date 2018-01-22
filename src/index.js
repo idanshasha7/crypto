@@ -35,11 +35,11 @@ firebaseApp.auth().onAuthStateChanged(user=>{
 ReactDOM.render(
 <div>
       <Provider store={store}>
-        <BrowserRouter  basename='/'>
+        <BrowserRouter  basename='/crypto'>
         <div>
           <Route  path='/signin' component={SignIn}/>
           <Route  path='/signup' component={SignUp}/>
-          <Route  path='/crypto/' component={App}/>
+          <Route  path='/crypto/c' component={App}/>
         </div>
         </BrowserRouter>
       </Provider>

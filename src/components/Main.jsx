@@ -15,9 +15,9 @@ const Main = () => (
   <main>
     <Switch>
       <Route exact path='/' component={AddCoin}/>
-      <Route path='/crypto/AddCoin' component={AddCoin}/>
-      <Route path='/crypto/CoinRest' component={CoinRest}/>
-      <Route path='/crypto/CoinList' component={CoinList}/>
+      <Route path='/crypto/c/AddCoin' component={AddCoin}/>
+      <Route path='/crypto/c/CoinRest' component={CoinRest}/>
+      <Route path='/crypto/c/CoinList' component={CoinList}/>
     </Switch>
   </main>
 )
