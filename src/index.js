@@ -40,6 +40,8 @@ ReactDOM.render(
           <Route  path='/signin' component={SignIn}/>
           <Route  path='/signup' component={SignUp}/>
           <Route  path='/crypto' component={App}/>
+          <Route component={ SignUp } />
+
         </div>
         </BrowserRouter>
       </Provider>
