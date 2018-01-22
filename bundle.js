@@ -21940,7 +21940,7 @@ _reactDom2.default.render(_react2.default.createElement(
     { store: store },
     _react2.default.createElement(
       _reactRouterDom.BrowserRouter,
-      { basename: '/' },
+      { basename: '/crypto' },
       _react2.default.createElement(
         'div',
         null,
