@@ -36,28 +36,24 @@ class Nav extends Component {
         <div className="collapse navbar-collapse" id="navbarResponsive">
           <ul className="navbar-nav navbar-sidenav" id="exampleAccordion">
             <li className="nav-item" data-toggle="tooltip" data-placement="right" title="Dashboard">
-              <a className="nav-link" href="index.html">
-                <i className="fa fa-fw fa-dashboard"></i>
-                <span className="nav-link-text">Dashboard</span>
-              </a>
+              <Link className="nav-link" to={'/crypto/restcoin'}
+                data-target="#exampleModal">  <i className="fa fa-fw fa-dashboard"></i>
+                <span className="nav-link-text">Dashboard</span></Link>
             </li>
             <li className="nav-item" data-toggle="tooltip" data-placement="right" title="Charts">
-              <a className="nav-link" href="charts.html">
-                <i className="fa fa-fw fa-area-chart"></i>
-                <span className="nav-link-text">Charts</span>
-              </a>
+            <Link className="nav-link" to={'/crypto/addcoin'}
+              data-target="#exampleModal">  <i className="fa fa-fw fa-dashboard"></i>
+              <span className="nav-link-text">Charts</span></Link>
             </li>
             <li className="nav-item" data-toggle="tooltip" data-placement="right" title="Tables">
-              <a className="nav-link" href="tables.html">
-                <i className="fa fa-fw fa-table"></i>
-                <span className="nav-link-text">Tables</span>
-              </a>
+            <Link className="nav-link" to={'/crypto/restcoin'}
+              data-target="#exampleModal">  <i className="fa fa-fw fa-dashboard"></i>
+              <span className="nav-link-text">Tables</span></Link>
             </li>
             <li className="nav-item" data-toggle="tooltip" data-placement="right" title="Components">
-              <a className="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseComponents" data-parent="#exampleAccordion">
-                <i className="fa fa-fw fa-wrench"></i>
-                <span className="nav-link-text">Components</span>
-              </a>
+            <Link className="nav-link" to={'/crypto/coinlist'}
+              data-target="#exampleModal">  <i className="fa fa-fw fa-dashboard"></i>
+              <span className="nav-link-text">Components</span></Link>
               <ul className="sidenav-second-level collapse" id="collapseComponents">
                 <li>
                   <a href="navbar.html">Navbar</a>
