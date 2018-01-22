@@ -21928,7 +21928,7 @@ _firebase.firebaseApp.auth().onAuthStateChanged(function (user) {
     //history.push('/crypto');
   } else {
     //console.log(" user has signed out ot still needs to sign in");
-    history.replace('/signin');
+    history.replace('/crypto/signin');
   }
 });
 
@@ -21944,9 +21944,9 @@ _reactDom2.default.render(_react2.default.createElement(
       _react2.default.createElement(
         'div',
         null,
-        _react2.default.createElement(_reactRouter.Route, { path: '/signin', component: _SignIn2.default }),
-        _react2.default.createElement(_reactRouter.Route, { path: '/signup', component: _SignUp2.default }),
-        _react2.default.createElement(_reactRouter.Route, { path: '/crypto', component: _App2.default })
+        _react2.default.createElement(_reactRouter.Route, { path: '/crypto/signin', component: _SignIn2.default }),
+        _react2.default.createElement(_reactRouter.Route, { path: '/crypto/signup', component: _SignUp2.default }),
+        _react2.default.createElement(_reactRouter.Route, { path: '/crypto/cryp/', component: _App2.default })
       )
     )
   )
@@ -40656,10 +40656,10 @@ var Main = function Main() {
     _react2.default.createElement(
       _reactRouterDom.Switch,
       null,
-      _react2.default.createElement(_reactRouterDom.Route, { exact: true, path: '/crypto', component: _AddCoin2.default }),
-      _react2.default.createElement(_reactRouterDom.Route, { path: '/crypto/AddCoin', component: _AddCoin2.default }),
-      _react2.default.createElement(_reactRouterDom.Route, { path: '/crypto/CoinRest', component: _CoinRest2.default }),
-      _react2.default.createElement(_reactRouterDom.Route, { path: '/crypto/CoinList', component: _CoinList2.default })
+      _react2.default.createElement(_reactRouterDom.Route, { exact: true, path: '/crypto/cryp/', component: _AddCoin2.default }),
+      _react2.default.createElement(_reactRouterDom.Route, { path: '/crypto/cryp/AddCoin', component: _AddCoin2.default }),
+      _react2.default.createElement(_reactRouterDom.Route, { path: '/crypto/cryp/CoinRest', component: _CoinRest2.default }),
+      _react2.default.createElement(_reactRouterDom.Route, { path: '/crypto/cryp/CoinList', component: _CoinList2.default })
     )
   );
 };
