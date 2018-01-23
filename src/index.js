@@ -25,17 +25,22 @@ firebaseApp.auth().onAuthStateChanged(user=>{
     //console.log("a user signin or up" + user);
     const { email } = user;
     store.dispatch(logUser(email));
+    console.log('hi you are user!')
     //history.push('/crypto');
   }else{
     //console.log(" user has signed out ot still needs to sign in");
-    history.replace('/crypto/signin');
+    // history.push('/crypto/signin');
+    history.push('/crypto/signin');
+    console.log('hi you are not user!')
+
+
   }
 })
 
 ReactDOM.render(
 <div>
       <Provider store={store}>
-        <BrowserRouter  basename='/crypto' history={history}>
+        <BrowserRouter  basename='/crypto'>
         <div>
           <Route  path='/signin' component={SignIn}/>
           <Route  path='/signup' component={SignUp}/>
