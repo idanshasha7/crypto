@@ -220,7 +220,7 @@ class Nav extends Component {
             </li>
             <li className="nav-item">
 
-              <Link className="nav-link" to={'/signin'}
+              <Link className="nav-link" to={'/registeration/signin'}
                onClick={()=> this.signOut()}
                 data-target="#exampleModal">
                 Logout</Link>

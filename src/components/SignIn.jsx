@@ -20,20 +20,19 @@ class SignIn extends Component {
       }
     }
   }
-  componentDidMount(){
-    console.log("wait this is state ", this.props)
-  }
+
   signIn(){
-    console.log('this.state',this.state);
+
     const {email, password} = this.state
     firebaseApp.auth().signInWithEmailAndPassword(email, password)
     .catch(error=>{
-      console.log('error', error);
-      this.setState({error});
+      var errorCode = error.code;
+      var errorMessage = error.message;
+      this.setState({error:error});
     })
-    if(this.state.error.message === ""){
-      this.props.history.push('/crypto')
-    }
+
+      console.log(this.state)
+
   }
 
   render(){
@@ -45,7 +44,7 @@ class SignIn extends Component {
            <div className="card-body">
              <form>
                <div className="form-group">
-                 <label for="exampleInputEmail1">Email address</label>
+                 <label htmlFor="exampleInputEmail1">Email address</label>
                  <input
                    className="form-control"
                    type="text"
@@ -54,7 +53,7 @@ class SignIn extends Component {
                    />
                </div>
                <div className="form-group">
-                 <label for="exampleInputPassword1">Password</label>
+                 <label htmlFor="exampleInputPassword1">Password</label>
                  <input
                    className="form-control"
                    type="password"
