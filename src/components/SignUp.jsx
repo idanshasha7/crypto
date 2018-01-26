@@ -65,7 +65,7 @@ class SignUp extends Component {
                </button>
              </form>
              <div className="text-center">
-                <Link className="d-block small mt-3" to={'/signin'}> Already a user? Sign in </Link>
+                <Link className="d-block small mt-3" to={'/registeration/signin'}> Already a user? Sign in </Link>
                 <div style={{color:'red'}}>{this.state.error.message}</div>
              </div>
            </div>

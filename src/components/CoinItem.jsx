@@ -35,7 +35,8 @@ class CoinItem extends Component {
     let percentIncreaseTd = null;
     let percentChange7dTd = null;
     // console.log(this.props.coin)
-    firstAssignUSDCalc = parseInt(firstAssignUSDCalc);
+    firstAssignUSDCalc = parseInt(parseFloat(firstAssignUSDCalc)*parseFloat(value));
+
     let coinIcom = '/public/images/icons/'+coin +'.png';
     const {totalAmount} = this.props.totalAmount;
     //let {firstAssign} = this.props.firstAssign;

@@ -74,7 +74,7 @@ class SignIn extends Component {
              </form>
              <div className="text-center">
              <div> {this.state.error.message}</div>
-               <Link to={'/signup'}> Sign Up instead </Link>
+               <Link to={'/registeration/signup'}> Sign Up instead </Link>
 
              </div>
            </div>
