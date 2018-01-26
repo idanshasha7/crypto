@@ -30,15 +30,16 @@ class CoinItem extends Component {
 
 
   render(){
-    let {firstAssign, email, value, coin,
+    let {firstAssign,firstAssignBTCCalc, firstAssignUSDCalc, email, value, coin,
           cryValue, percentChange7d, cryptoRank, rankAssign} = this.props.coin;
     let percentIncreaseTd = null;
     let percentChange7dTd = null;
-
+    // console.log(this.props.coin)
+    firstAssignUSDCalc = parseInt(firstAssignUSDCalc);
     let coinIcom = '/public/images/icons/'+coin +'.png';
     const {totalAmount} = this.props.totalAmount;
     //let {firstAssign} = this.props.firstAssign;
-    let percentIncrease = this.getpercentIncrease(firstAssign,cryValue);
+    let percentIncrease = this.getpercentIncrease(firstAssignUSDCalc,cryValue);
     if (percentIncrease > 0) {
       percentIncreaseTd =   <td style={{color: 'green'}}> {percentIncrease}% </td>;
     } else {
@@ -70,7 +71,7 @@ class CoinItem extends Component {
               {cryValue}$
             </td>
             <td>
-              {firstAssign}$
+              {firstAssignUSDCalc}$ / {firstAssignBTCCalc}
             </td>
             {percentIncreaseTd}
             <td>

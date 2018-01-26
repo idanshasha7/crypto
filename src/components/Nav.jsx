@@ -18,7 +18,7 @@ class Nav extends Component {
   signOut(){
     firebaseApp.auth().signOut();
     console.log('you click signout');
-    this.props.history.push('/crypto')
+    //this.props.history.push('/crypto')
 
   }
 
@@ -220,7 +220,7 @@ class Nav extends Component {
             </li>
             <li className="nav-item">
 
-              <Link className="nav-link" to={'/crypto'}
+              <Link className="nav-link" to={'/signin'}
                onClick={()=> this.signOut()}
                 data-target="#exampleModal">
                 Logout</Link>

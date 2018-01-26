@@ -24,6 +24,8 @@ class CoinList extends Component{
       coins: [],
       coinValue:[],
       firstAssign:0,
+      firstAssignBTC:0,
+      firstAssignUSD:0,
       rankAssign:0,
       options: {
         title: 'Coin Value',
@@ -31,7 +33,8 @@ class CoinList extends Component{
 
       },
 
-      'totalAmount':0
+      'totalAmount':0,
+      'totalAmountBTC':0
     };
   }
 
@@ -56,12 +59,19 @@ class CoinList extends Component{
       let coinValue = [["Coin","Value"]];
 
       let firstAssign = 0;
+      let firstAssignBTC = 0;
+      let firstAssignUSD = 0;
       let rankAssign = 0;
       let totalAmount = 0;
+      let totalAmountBTC = 0;
       snap.forEach(cryCoin=>{
-        //let coinObject = coin.val();
-      let {email, value, coin, firstAssign, rankAssign} = cryCoin.val();
+
+
+      let {email, value, coin, firstAssign,
+                  firstAssignBTCCalc, firstAssignUSDCalc,rankAssign} = cryCoin.val();
       firstAssign = parseInt(firstAssign);
+      firstAssignUSD = parseInt(firstAssignUSDCalc);
+      firstAssignBTC = parseFloat(firstAssignBTCCalc);
       rankAssign = parseInt(rankAssign);
       const serverKey = cryCoin.key;
 
@@ -77,15 +87,22 @@ class CoinList extends Component{
             const cryValue = parseInt(priceValue);
             const cryptoRank = restCoins[0].rank;
             totalAmount = totalAmount + cryValue;
+            totalAmountBTC = parseFloat(totalAmountBTC) +
+                                (parseFloat(value)*parseFloat(restCoins[0].price_btc));
+                                
             coinValue.push([coin,priceValue]);
-
-
+            // console.log(cryValue)
+            console.log(parseFloat(firstAssignBTCCalc))
             coins.push({email, value, coin, serverKey,cryValue,
-                        firstAssign,percentChange7d, rankAssign,
+                        firstAssign,firstAssignUSDCalc, firstAssignBTCCalc,
+                         percentChange7d,
+                         rankAssign,
                         cryptoRank});
 
             this.setState({coins, priceValue, value,
-                          totalAmount, coinValue,percentChange7d});
+                          totalAmount,totalAmountBTC,
+                          coinValue,percentChange7d});
+                          console.log("this", this.state.totalAmountBTC);
         });
 
 
@@ -115,7 +132,7 @@ class CoinList extends Component{
       fontSize: '22px',
       color: '#fff',
       height: '150px',
-      background: 'rgb(254, 193, 8)',
+      background: '#337ab7',
       lineHeight: '150px',
       fontFamily: 'Arial',
       border: '2px solid #fec108',
@@ -156,21 +173,55 @@ class CoinList extends Component{
     borderRadius: '50%'
 }}>
 
-        <AnimatedNumber component="int" value={this.state.totalAmount}
-            style={{
-                transition: '1.2s ease-out',
-                fontSize: 22,
-                fontWeight:900,
-                transitionProperty:
-                    'background-color, color, opacity'
-            }}
-            frameStyle={perc => (
-                perc === 100 ? {} : {backgroundColor: ''}
-            )}
-            duration={1200}
-            stepPrecision={0}
-            />$
+
+            <AnimatedNumber component="int" value={this.state.totalAmount}
+                style={{
+                    transition: '1.2s ease-out',
+                    fontSize: 22,
+                    fontWeight:900,
+                    transitionProperty:
+                        'background-color, color, opacity'
+                }}
+                frameStyle={perc => (
+                    perc === 100 ? {} : {backgroundColor: ''}
+                )}
+                duration={1200}
+                stepPrecision={0}
+                />$
             </div>
+            <div className="total_amount" style={{
+        margin: '15px auto',
+        display:'inline-block',
+        left: '0',
+        right: '0',
+        width: '150px',
+        fontSize: '22px',
+        color: '#fff',
+        height: '150px',
+        background: 'rgb(254, 193, 8)',
+        lineHeight: '150px',
+        fontFamily: 'Arial',
+        border: '2px solid #fec108',
+        textAlign: 'center',
+        borderRadius: '50%'
+    }}>
+
+
+                <AnimatedNumber component="float" value={this.state.totalAmountBTC}
+                    style={{
+                        transition: '1.8s ease-out',
+                        fontSize: 22,
+                        fontWeight:900,
+                        transitionProperty:
+                            'background-color, color, opacity'
+                    }}
+                    frameStyle={perc => (
+                        perc === 100 ? {} : {backgroundColor: ''}
+                    )}
+                    duration={1200}
+                    stepPrecision={0}
+                    />
+                </div>
         </div>
 
 

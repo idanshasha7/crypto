@@ -2,6 +2,12 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import {firebaseApp} from '../firebase';
+import createHistory from 'history/createBrowserHistory';
+import { withRouter } from 'react-router-dom'
+
+
+const history = createHistory();
+
 
 class SignIn extends Component {
   constructor(props){
@@ -15,7 +21,7 @@ class SignIn extends Component {
     }
   }
   componentDidMount(){
-    // console.log("wait this is state ", this.props)
+    console.log("wait this is state ", this.props)
   }
   signIn(){
     console.log('this.state',this.state);
@@ -80,4 +86,15 @@ class SignIn extends Component {
   }
 }
 
-export default SignIn
+//export default SignIn
+
+function mapStateToProps(state){
+  const { user } = state;
+  return{
+    user
+  }
+}
+
+
+// export default withRouter(connect(mapStateToProps)(SignIn))
+export default withRouter(connect(mapStateToProps)(SignIn))
