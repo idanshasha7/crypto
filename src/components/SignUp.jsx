@@ -23,9 +23,7 @@ class SignUp extends Component {
       console.log('error', error);
       this.setState({error});
     })
-    if(this.state.error.message === ""){
-      this.props.history.push('/crypto')
-    }
+
   }
 
   render(){
