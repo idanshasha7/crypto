@@ -33,6 +33,7 @@ firebaseApp.auth().onAuthStateChanged(user=>{
   }else{
     //console.log(" user has signed out ot still needs to sign in");
     // history.push('/crypto/signin');
+    // console.log(process.env)
     history.push('/registeration/signin');
     console.log('hi you are not user!')
 
@@ -46,6 +47,7 @@ ReactDOM.render(
         <Router  history={history}>
         <div>
           <Route  path='/registeration/signin' component={SignIn}/>
+
 
           <Route  path='/registeration/signup' component={SignUp}/>
           <Route  path='/crypto' component={App}/>

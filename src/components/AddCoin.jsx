@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import {coinRef} from '../firebase';
 import axios from 'axios';
+import CoinList from './CoinList'
 
 
 class AddCoin extends Component {
@@ -168,11 +169,8 @@ setFirstAssignUSD(firstAssignUSD){
       </div>
 
       </div>
-        <div className="form-group">
-
-
-
-
+        <div className="form-group" style={{margin: '20px'}}>
+          <CoinList />
 
         </div>
       </div>
