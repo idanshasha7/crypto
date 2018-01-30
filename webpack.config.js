@@ -45,7 +45,7 @@ module.exports = {
     },
     devServer: {
        historyApiFallback: true,
-       contentBase: './crypto',
+       contentBase: './*',
        hot: true
      },
   //   devServer: {
