@@ -10,6 +10,7 @@ import {createStore} from 'redux';
 import { logUser } from '../actions';
 import reducer from '../reducers';
 import {firebaseApp} from '../firebase.js';
+import {SignIn} from './SignIn';
 
 
 const store = createStore(reducer);
@@ -39,11 +40,13 @@ class CoinList extends Component{
   }
 
   componentDidMount(){
-    let userEmail = ' ';
+    var userEmail = ' ';
     firebaseApp.auth().onAuthStateChanged(user=>{
       if(user){
 
         userEmail = user.email;
+        this.getUserCoinList(userEmail);
+
 
       }else{
         console.log(" sorry we try to locate the user without any success");
@@ -51,10 +54,12 @@ class CoinList extends Component{
       }
     })
 
+  }
+  getUserCoinList(userEmail){
     let coinValue = [];
-
-    coinRef.on('value', snap=>{
+    coinRef.orderByChild('email').equalTo(userEmail).on('value', snap=>{
       //console.log("we have the fucking user" + userEmail);
+      console.log("snap", snap)
       let coins = [];
       let coinValue = [["Coin","Value"]];
 
@@ -77,7 +82,7 @@ class CoinList extends Component{
 
       //get coin icon from anthor api
 
-      if (email === userEmail){
+
       //get all data of coin - price,change,total etc...
         axios.get(`https://api.coinmarketcap.com/v1/ticker/`+coin+'/')
           .then(res => {
@@ -89,7 +94,7 @@ class CoinList extends Component{
             totalAmount = totalAmount + cryValue;
             totalAmountBTC = parseFloat(totalAmountBTC) +
                                 (parseFloat(value)*parseFloat(restCoins[0].price_btc));
-                                
+
             coinValue.push([coin,priceValue]);
             // console.log(cryValue)
             console.log(parseFloat(firstAssignBTCCalc))
@@ -105,19 +110,12 @@ class CoinList extends Component{
                           console.log("this", this.state.totalAmountBTC);
         });
 
-
         this.props.setCoins(coins);
-        }
-      })
+   })
 
 
-    })
 
-  }
-
-  componentWillUnmount() {
-
-
+    });
   }
   render(){
     //console.log('-coinList-');

@@ -50,7 +50,7 @@ ReactDOM.render(
 
 
           <Route  path='/registeration/signup' component={SignUp}/>
-          <Route  path='/crypto' component={App}/>
+          <Route  path='/crypto' component={App} />
 
         </div>
         </Router>
