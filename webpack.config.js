@@ -43,6 +43,11 @@ module.exports = {
 
         ]
     },
+    node: {
+      fs: 'empty',
+      net: 'empty',
+      tls: 'empty'
+    },
     devServer: {
        historyApiFallback: true,
        contentBase: './crypto/',

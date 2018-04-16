@@ -29,10 +29,35 @@ class AddCoin extends Component {
       axios.get(`https://api.coinmarketcap.com/v1/ticker/bitcoin/`)
         .then(res => {
           const bitcoinPrice = res.data.map(obj => obj);
-          console.log('bitcoinPrice',bitcoinPrice[0].price_usd);
+          // console.log('bitcoinPrice',bitcoinPrice[0].price_usd);
           this.setState({ bitcoinPrice: bitcoinPrice[0].price_usd });
 
       });
+      const binance = require('node-binance-api');
+      binance.options({
+      APIKEY: 'vPCVEYKqK16HcQ0Oq7cESs6IOHKXDLA7zw54qnA2VeDuN5JK3CrJ60ckBlb93ggN',
+      APISECRET: '5UDkm7OBPxc5mPTfu0uy5YeeCKcraBl21J7PU2Xja73tLVb2nzKUOxtGyYSH9eD7',
+      // APIKEY: 'vmPUZE6mv9SD5VNHk4HlWFsOr6aKE2zvsw0MuIgwCIPy6utIco14y7Ju91duEh8A',
+      // APISECRET: 'NhqPtmdSJYdKjVHjA7PZj4Mge3R5YNiP1e3UZjInClVN65XAbvqqM6A7H5fATj0j',
+      'Access-Control-Allow-Headers': 'X-Requested-With,content-type',
+      'Access-Control-Allow-Origin':  '*',
+      'Access-Control-Allow-Methods':'GET, POST, OPTIONS, PUT, PATCH, DELETE',
+      'Access-Control-Allow-Credentials':true,
+      useServerTime: true, // If you get timestamp errors, synchronize to server time at startup
+      test: true // If you want to use sandbox mode where orders are simulated
+    });
+    // binance.options({
+  //     APIKEY: 'vPCVEYKqK16HcQ0Oq7cESs6IOHKXDLA7zw54qnA2VeDuN5JK3CrJ60ckBlb93ggN',
+  //     APISECRET: '5UDkm7OBPxc5mPTfu0uy5YeeCKcraBl21J7PU2Xja73tLVb2nzKUOxtGyYSH9eD7',
+  //   'Access-Control-Allow-Origin':  '*',
+  //     useServerTime: true, // If you get timestamp errors, synchronize to server time at startup
+  //     test: true
+  //   });
+    binance.balance((error, balances) => {
+    console.log("balances()", balances);
+
+  });
+
   }
   AddCoin(){
     console.log('this.state: - ', this.state.value)
@@ -77,6 +102,15 @@ class AddCoin extends Component {
                         firstAssignBTCCalc, firstAssignUSDCalc})
           }
       });
+      //clear filed
+      let first_assign_dollar = document.getElementById("first_assign_dollar");
+      let first_assign_btc = document.getElementById("first_assign_btc");
+      let coin_amount = document.getElementById("coin_amount");
+      first_assign_dollar.value = "";
+      first_assign_btc.value = "";
+      coin_amount.value = "";
+
+
 }
 setFirstAssignBTC(firstAssignBTC){
   let fixPrice = parseFloat(this.state.bitcoinPrice) * parseFloat(firstAssignBTC);
@@ -108,21 +142,17 @@ setFirstAssignUSD(firstAssignUSD){
 
           <div className="card-body">
 
-            <form>
+            <form id="add_coin_form">
 
-              <div className="form-group">
                 <label htmlFor="exampleInputPassword1">Coin name:</label>
-
                 <select onChange={event => this.setState({coin: event.target.value})}>
                 <option key='0' ></option>
-                {this.state.coins.map(coin =>
+                  {this.state.coins.map(coin =>
                         <option key={coin.rank} value={coin.id} >{coin.name}</option>
                     )}
-
-              </select>
-
-                <label ></label>
+                  </select>
                 <input
+                  id="coin_amount"
                   type="text"
                   placeholder="Coin Amount"
                   className="form-control"
@@ -133,6 +163,7 @@ setFirstAssignUSD(firstAssignUSD){
                   FirstAssign by:
                 </label>
                 <input
+                  id="first_assign_btc"
                   type="text"
                   placeholder="BTC"
                   className="form-control"
@@ -143,16 +174,16 @@ setFirstAssignUSD(firstAssignUSD){
 
                 <input
                   type="text"
+                  id="first_assign_dollar"
                   placeholder="USD"
                   className="form-control"
                   value={this.state.firstAssignUSD}
                   style={{marginRight: '5px',marginTop:'10px'}}
                   onChange={event => this.setFirstAssignUSD(event.target.value)}
-
                 />
 
 
-              </div>
+
 
 
               <button
